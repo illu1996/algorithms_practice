@@ -3,32 +3,31 @@
 
 # 음료수 얼려 먹기 p149
 
+# 첫째줄 입력
 n,m = map(int,input().split())
+# 얼음 입력
+ice = [list(map(int, input())) for _ in range(n)]
 
-
-ice_map = [list(map(int, input())) for _ in range(n)]
-
-visited = [[0]*m for _ in range(n)]
-
-x,y = 0,0
-dx = [0,1,0,-1]
-dy = [1,0,-1,0]
+# dfs 정의
+def dfs(x,y):
+    #갈 필요 없는 조건
+    if x< 0 or x>=n or y <0 or y>=m:
+        return False
+    if ice[x][y]==0:
+        ice[x][y] = 1
+        # 상하 좌우 이동
+        dfs(x+1,y)
+        dfs(x,y+1)
+        dfs(x-1,y)
+        dfs(x,y-1)
+        return True
+    return False
 
 count = 0
-
+# 방향 탐색               
 for i in range(n):
     for j in range(m):
-        for k in range(4):   
-            if ice_map[x][y] == 0 and visited[x][y] == 0 :
-                nx = x + dx[k]
-                ny = y + dy[k]
-                if 0 <= nx < n and 0<=ny<m:
-                    visited[x][y] = 1
-                    x = nx
-                    y = ny
-                    continue
-                
-    else:
-        count += 1
+        if dfs(i,j)==True:
+            count += 1
+            
 print(count)
-                    
