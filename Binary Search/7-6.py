@@ -32,7 +32,7 @@ ans = 0
 # 이진 탐색
 start = 0
 end = max(rice_list)
-result = 0
+result = []
 while start <= end:
     total = 0
     mid = (start + end) // 2
@@ -42,7 +42,7 @@ while start <= end:
             total += i - mid
     # 떡의 총 길이가 손님 요청보다 작은경우 
     if total == m:
-        result = mid   
+        result.append(mid)  
     if total < m:
         end = mid - 1
     else:
