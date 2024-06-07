@@ -1,22 +1,15 @@
-# 연습장
-
-# dfs
 from collections import deque
 
-def dfe(G, v, visited):
+def dfs():
     visited[v] = 1
     
     for i in G[v]:
-        if not visited:
-            visited[i] = 1
-            dfe(G, i, visited)
-            
-def bfs(G, v, visited):
-    q = deque([v])
+        if not visited[i]:
+            dfs(i)
+    stack = [v]
     visited[v] = 1
-    while q:
-        now = q.popleft()
-        for i in G[now]:
-            if not visited[i]:
-                visited[i] = 1
-                q.append(i)
+    v = stack.pop()
+    for i in G[v]:
+        if not visited[i]:
+            
+            stack.append(i)
