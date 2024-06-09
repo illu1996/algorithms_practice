@@ -1,15 +1,14 @@
 from collections import deque
-
-def dfs():
-    visited[v] = 1
+home = [1,6,8,9,11]
+def bi_se(home,s,e,max_value,max_mid):
+    if s>e:
+        return
+    mid = (s+e) // 2
+    # 설치 조건
+    if dist(s,e,home[mid])> max_value:
+        max_value = dist(s,e,home[mid])
+        max_mid = mid
+    bi_se(home,s,mid-1,max_value,max_mid)
+    bi_se(home,mid+1,e,max_value,max_mid)
+    return max_mid
     
-    for i in G[v]:
-        if not visited[i]:
-            dfs(i)
-    stack = [v]
-    visited[v] = 1
-    v = stack.pop()
-    for i in G[v]:
-        if not visited[i]:
-            
-            stack.append(i)

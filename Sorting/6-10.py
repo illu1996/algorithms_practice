@@ -13,11 +13,11 @@ print(num)
 #선택정렬 = 가장작은 인덱스 찾기 내림차순이므로 가장 큰 인덱스 찾기
 
 for i in range(len(num)):
-    max_index = i
+    min_index = i
     for j in range(i+1,len(num)):
-        if num[max_index] < num[j]:
-            max_index = j
-    num[i],num[max_index] = num[max_index],num[i]
+        if num[min_index] > num[j]:
+            min_index = j
+    num[i],num[min_index] = num[min_index],num[i]
 print(num)
 
 
@@ -26,7 +26,7 @@ num= [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
 
 for i in range(1,len(num)):
     for j in range(i,0,-1):
-        if num[j] > num[j-1]:
+        if num[j] < num[j-1]:
             num[j],num[j-1]=num[j-1],num[j]
 print(num)
 
@@ -39,9 +39,9 @@ def q(num,s,e):
     l = s+1
     r = e
     while l <= r:
-        while l <=e and num[l] >= num[p]:
+        while l <=e and num[l] <= num[p]:
             l += 1
-        while r > s and num[r] <= num[p]:
+        while r > s and num[r] >= num[p]:
             r -=1
         if l > r:
             num[p],num[r] = num[r],num[p]
