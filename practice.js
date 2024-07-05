@@ -1,12 +1,26 @@
-let fs = require('fs');
-let input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
-
-let n = input[0];
-let map = [];
-
-for (let i = 1; i < input.length; i++) {
-  let row = input[i].split('').map(Number);
-  map.push(row);
+let arr = [
+  [1, 2],
+  [2, 2],
+  [2, 1]
+];
+const xmap = new Map();
+const ymap = new Map();
+let answer = [];
+for (let [x, y] of arr) {
+  if (xmap.has(x)) {
+    xmap.set(x, xmap.get(x) + 1);
+  } else {
+    xmap.set(x, 1);
+  }
+  if (y in ymap) {
+    ymap[y] += 1;
+  } else {
+    ymap[y] = 1;
+  }
 }
-
-console.log(map);
+for (let [key, val] of xmap) {
+  if (val === 1) {
+    answer.push(key);
+  }
+}
+console.log(answer);
