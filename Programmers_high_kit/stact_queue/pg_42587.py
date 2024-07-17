@@ -1,23 +1,22 @@
 # pg 42587
 # 프로세스
+# 레벨 2
+
+from collections import deque
 
 def solution(priorities, location):
+    q = deque([])
+    for i,j in enumerate(priorities):
+        q.append((i,j))
     answer = []
-    num = list(enumerate(priorities))
-    q = num
-    ans=''
-
+    
     while q:
-        i,order = q.pop(0)
-        
-        for k,o in q:
-            if order < o:
-                q.append((i,order))
+        idx, prior = q.popleft()
+        for i,j in q:
+            if prior < j:
+                q.append((idx, prior))
                 break
         else:
-            answer.append((i,order))    
-            
-    for i in range(len(answer)):
-        if location == answer[i][0]:
-            ans = i + 1
-    return ans
+            answer.append(idx)    
+    
+    return answer.index(location) + 1
