@@ -22,6 +22,4 @@ for i in drink:
             answer = i[1]
             break
         else:
-            happy -= heaqp
-            
-https://bluehyena.tistory.com/entry/%EB%B0%B1%EC%A4%80-17503%EB%B2%88-%EB%A7%A5%EC%A3%BC-%EC%B6%95%EC%A0%9C-Python
+            pass
