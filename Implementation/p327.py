@@ -11,7 +11,7 @@ apple = int(input())
 
 for i in range(apple):
     a, b = map(int,input().split())
-    apple_map[a][b] = 2
+    apple_map[a-1][b-1] = 2
 
 # 뱀의 방향 전환
 change_dir = []
@@ -65,5 +65,5 @@ while apple:
             continue
 
     second += 1
-
+print(apple_map)
 print(second)
