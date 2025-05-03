@@ -1,23 +1,13 @@
 import java.util.*;
 
-public class Main{
+public class practice{
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] lst = new int[n];
+        String str = new String("hello");
+        System.out.println(str.length());
 
-        for (int i = 0 ; i < n; i ++){
-            lst[i] = sc.nextInt();
-        }
-        int v = sc.nextInt();
+        //빈문자열 체기
 
-        int cnt = 0;
+        //문자 찾기
 
-        for (int k: lst){
-            if (k== v){
-                cnt ++;
-            }
-        }
-        System.out.println(cnt);
     }
 }
