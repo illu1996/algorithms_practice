@@ -60,7 +60,7 @@ public class str_method {
         System.out.println(sb);
         //문자열 삭제
         System.out.println(sb.delete(1,3));
-        System.out.println(sb2);
+        System.out.println(sb2.append("a"));
         //특정 인덱스 문자 삭제
 
         //특정 인덱스 문자 변경
