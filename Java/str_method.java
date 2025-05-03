@@ -51,26 +51,33 @@ public class str_method {
 
         // 스트링 빌더 메소드
         StringBuilder sb = new StringBuilder();
-        StringBuilder sb2 = new StringBuilder();
         // 문자열 추가
-        sb.append("apple");
-        System.out.println(sb);
+        sb.append("hello");
         //특정 인덱스 문자 삽입
-        sb.insert(3, "kk");
+        sb.insert(1, "ko");
         System.out.println(sb);
         //문자열 삭제
-        System.out.println(sb.delete(1,3));
-        System.out.println(sb2.append("a"));
+        System.out.println("문자열 삭제");
+        System.out.println(sb);
+        System.out.println(sb.delete(1,2));
+        System.out.println(sb.deleteCharAt(3));
+
+        System.out.println(sb);
         //특정 인덱스 문자 삭제
 
         //특정 인덱스 문자 변경
-
+        System.out.println(sb.replace(1,2,"k"));
         //문자열 뒤집기
+        System.out.println(sb.reverse());
 
         //문자열 길이 줄이기
-
+        sb.setLength(2);
+        System.out.println(sb);
         //문자열 절대 길이 늘이기
+        sb.setLength(8);
+        System.out.println(sb);
+        String sbToStr = sb.toString();
 
-
+        System.out.println(sbToStr);
     }
 }
