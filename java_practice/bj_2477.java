@@ -1,5 +1,5 @@
+package java_practice;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class bj_2477 {
