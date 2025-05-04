@@ -8,28 +8,32 @@ public class bj_16173 {
     static int[][] lst;
     static boolean[][] visited;
     static int gx,gy;
-    static boolean dfs(int x,int y){
-        visited[x][y] = true;
-
-        int down_nx = x + lst[x][y];
+    static boolean dfs(int x,int y) {
+        visited[ x ][ y ] = true;
+        if (lst[ x ][ y ] == 0) {
+            return false;
+        }
+        int down_nx = x + lst[ x ][ y ];
         int down_ny = y;
-
         int right_nx = x;
-        int right_ny = y + lst[x][y];
-        if ( down_nx >=0 && down_nx < n && down_ny>=0 && down_ny < n && lst[down_nx][down_ny] == -1){
+        int right_ny = y + lst[ x ][ y ];
+        if (down_nx >= 0 && down_nx < n && down_ny >= 0 && down_ny < n && lst[ down_nx ][ down_ny ] == -1) {
             return true;
         }
-        if (right_nx >=0 && right_nx < n && right_ny>=0 && right_ny < n && lst[right_nx][right_ny] == -1){
+        if (right_nx >= 0 && right_nx < n && right_ny >= 0 && right_ny < n && lst[ right_nx ][ right_ny ] == -1) {
             return true;
         }
-
-        if (down_nx >=0 && down_nx < n && down_ny>=0 && down_ny < n && !visited[down_nx][down_ny]){
-            return dfs(down_nx,down_ny);
+        if (down_nx >= 0 && down_nx < n && down_ny >= 0 && down_ny < n && !visited[ down_nx ][ down_ny ]) {
+            if (dfs(down_nx, down_ny)){
+                return true;
+            };
         }
-        if (right_nx >=0 && right_nx < n && right_ny>=0 && right_ny < n && !visited[right_nx][right_ny]){
-            return dfs(right_nx,right_ny);
-        }
+        if (right_nx >= 0 && right_nx < n && right_ny >= 0 && right_ny < n && !visited[ right_nx ][ right_ny ]) {
+            if (dfs(right_nx, right_ny)){
+                return true;
+            };
 
+        };
         return false;
     }
 
@@ -56,7 +60,7 @@ public class bj_16173 {
         if (k==true){
             System.out.println("HaruHaru");
         }
-        else{
+        else if (k==false){
             System.out.println("Hing");
         }
     }
