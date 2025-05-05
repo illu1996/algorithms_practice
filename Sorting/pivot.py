@@ -5,6 +5,7 @@ lst = [5,7,9,0,3,1,6,2,4,8]
 
 def quick_sort(lst,s,e):
     
+    # 시작과 끝이 같아지거나 커지면 종료
     if s >= e:
         return
     p = s

@@ -1,4 +1,4 @@
-package java_practice;
+package java_practice.implementation;
 
 import java.util.*;
 
