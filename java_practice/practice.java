@@ -4,12 +4,10 @@ import java.util.*;
 
 public class practice{
     public static void main(String[] args){
-        String str = new String("hello");
-        System.out.println(str.length());
+        int num = 10;
 
-        //빈문자열 체기
-
-        //문자 찾기
+        int binaryNum = Integer.parseInt(Integer.toBinaryString(num));
+        System.out.println(binaryNum);
 
     }
 }
