@@ -16,29 +16,41 @@ special_visit = list([0] * n for _ in range(n))
 
 
 def dfs(now_r, now_c, now_color, visit):
+    stack = []
     visit[now_r][now_c] = 1
-    for dr, dc in direct:
-        new_r, new_c = dr + now_r, dc + now_c
-        if (
-            0 <= new_r <= n - 1
-            and 0 <= new_c <= n - 1
-            and not visit[new_r][new_c]
-            and RGB_map[new_r][new_c] == now_color
-        ):
-            dfs(new_r, new_c, now_color, visit)
+    stack.append((now_r, now_c))
+    while stack:
+        now_r, now_c = stack.pop()
+        for dr, dc in direct:
+            new_r, new_c = dr + now_r, dc + now_c
+            if (
+                0 <= new_r <= n - 1
+                and 0 <= new_c <= n - 1
+                and not visit[new_r][new_c]
+                and RGB_map[new_r][new_c] == now_color
+            ):
+                stack.append((new_r, new_c))
+                visit[new_r][new_c] = 1
 
 
 def special_dfs(now_r, now_c, now_color, visit):
     visit[now_r][now_c] = 1
-    for dr, dc in direct:
-        new_r, new_c = dr + now_r, dc + now_c
-        if 0 <= new_r <= n - 1 and 0 <= new_c <= n - 1 and not visit[new_r][new_c]:
-            if now_color == "R" or now_color == "G":
-                if RGB_map[new_r][new_c] == "R" or RGB_map[new_r][new_c] == "G":
-                    special_dfs(new_r, new_c, now_color, visit)
-            elif now_color == "B":
-                if RGB_map[new_r][new_c] == "B":
-                    special_dfs(new_r, new_c, now_color, visit)
+    stack = []
+    stack.append((now_r, now_c))
+    while stack:
+        now_r, now_c = stack.pop()
+
+        for dr, dc in direct:
+            new_r, new_c = dr + now_r, dc + now_c
+            if 0 <= new_r <= n - 1 and 0 <= new_c <= n - 1 and not visit[new_r][new_c]:
+                if now_color == "R" or now_color == "G":
+                    if RGB_map[new_r][new_c] == "R" or RGB_map[new_r][new_c] == "G":
+                        stack.append((new_r, new_c))
+                        visit[new_r][new_c] = 1
+                elif now_color == "B":
+                    if RGB_map[new_r][new_c] == "B":
+                        stack.append((new_r, new_c))
+                        visit[new_r][new_c] = 1
 
 
 for i in range(n):
